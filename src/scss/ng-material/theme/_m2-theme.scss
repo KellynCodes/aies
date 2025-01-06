@@ -1,0 +1,81 @@
+$mat-primary: (
+  100: #e2facc,
+  500: #047c2c,
+  700: #00ba98,
+  contrast: (
+    100: rgba(black, 0.87),
+    500: white,
+    700: white,
+  ),
+);
+$mat-accent: (
+  100: #00ba98,
+  500: #e3fbcc,
+  700: #00ba98,
+  contrast: (
+    100: white,
+    500: white,
+    700: white,
+  ),
+);
+
+$mat-danger: (
+  100: #fda29b,
+  500: #f04438,
+  700: #c10034,
+  contrast: (
+    100: white,
+    500: white,
+    700: white,
+  ),
+);
+$mat-secondary: (
+  100: #f2f4f7,
+  500: #d0d5dd,
+  700: #eaecf0,
+  contrast: (
+    100: white,
+    500: white,
+    700: white,
+  ),
+);
+
+$mat-warn: (
+  100: #fda29b,
+  500: #f04438,
+  700: #f3704d,
+  contrast: (
+    100: white,
+    500: white,
+    700: white,
+  ),
+);
+
+$vita-primary: mat.m2-define-palette($mat-primary, 500);
+$vita-secondary: mat.m2-define-palette($mat-secondary, 500);
+$vita-accent: mat.m2-define-palette($mat-accent, 500);
+$vita-warn: mat.m2-define-palette($mat-warn, 500);
+$vita-danger: mat.m2-define-palette($mat-danger, 500);
+
+$density-scale: -2;
+$vita-theme: mat.m2-define-light-theme(
+  (
+    color: (
+      primary: $vita-primary,
+      accent: $vita-accent,
+      warn: $vita-warn,
+      error: $vita-danger,
+    ),
+    typography:
+      mat.m2-define-typography-config(
+        $font-family: "Inter",
+      ),
+    density: (
+      scale: $density-scale,
+    ),
+  )
+);
+
+html {
+  @include mat.all-component-themes($vita-theme);
+}

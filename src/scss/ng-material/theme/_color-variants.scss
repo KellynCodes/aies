@@ -1,0 +1,37 @@
+//spinner variants
+.primary-spinner {
+  @include mat.progress-spinner-color($light-theme, $color-variant: primary);
+}
+
+.secondary-spinner {
+  @include mat.progress-spinner-color($light-theme, $color-variant: secondary);
+}
+
+.tertiary-spinner {
+  @include mat.progress-spinner-color($light-theme, $color-variant: tertiary);
+}
+
+//slide toggle variants
+.primary-slide-toggle {
+  @include mat.slide-toggle-color($light-theme, $color-variant: primary);
+}
+
+.secondary-slide-toggle {
+  @include mat.slide-toggle-color($light-theme, $color-variant: secondary);
+}
+
+.tertiary-slide-toggle {
+  @include mat.slide-toggle-color($light-theme, $color-variant: tertiary);
+}
+
+//checkbox color variants
+.primary-checkbox {
+  @include mat.checkbox-color($light-theme, $color-variant: primary);
+}
+
+.secondary-checkbox {
+  @include mat.checkbox-color($light-theme, $color-variant: secondary);
+}
+.tertiary-checkbox {
+  @include mat.checkbox-color($light-theme, $color-variant: tertiary);
+}

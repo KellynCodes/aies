@@ -1,0 +1,30 @@
+//only override slide toggle with color theme primary
+.mat-mdc-slide-toggle {
+  &.mat-primary .mdc-switch {
+    border: 1px solid #d0d5dd !important;
+    border-radius: 20px !important;
+    width: 3rem !important;
+    height: 1.5rem !important;
+    background-color: #d0d5dd;
+
+    & .mdc-switch__icons {
+      border-radius: 50% !important;
+      border: 0px !important;
+
+      & .mdc-switch__icon--on {
+        border-radius: 50% !important;
+        background-color: mat.get-color-from-palette(
+          $aies-primary,
+          500
+        ) !important;
+      }
+      & .mdc-switch__icon--off {
+        border-radius: 50% !important;
+        background-color: mat.get-color-from-palette(
+          $aies-secondary,
+          100
+        ) !important;
+      }
+    }
+  }
+}

@@ -1,0 +1,50 @@
+.input {
+  @apply bg-white w-full rounded text-gray-900 border-2 border-gray-300 px-3 py-2 placeholder:font-normal placeholder:text-gray-500 placeholder:text-sm outline-none focus:border-primary focus:shadow-input-box transition-all delay-200 ease-in-out;
+  box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+}
+
+.search-input {
+  @apply bg-white rounded text-gray-900 border-2 border-gray-300 pr-3 py-1 pl-8 placeholder:font-normal placeholder:text-gray-500 placeholder:text-sm outline-none focus:border-primary focus:shadow-input-box transition-all delay-200 ease-in-out;
+  box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+}
+
+.input-error {
+  @apply relative focus:shadow-input-error-box focus:border-error-500 border-error-500;
+}
+
+.error-icon::after {
+  content: "";
+  background-image: url("/svg/alert-error.svg");
+  @apply absolute bg-contain bg-no-repeat right-3 top-[2.4rem] w-5 h-5 z-10;
+}
+.custom-error-icon::after {
+  content: "";
+  background-image: url("/svg/alert-error.svg");
+  @apply absolute bg-contain bg-no-repeat right-3 top-[25%] w-5 h-5 z-10;
+}
+
+.icon-container {
+  @apply border w-fit h-fit bg-white border-gray-200 rounded p-3 shadow-box;
+}
+
+.disabled {
+  background-color: #99cbab !important;
+  cursor: not-allowed !important;
+}
+
+.text-error {
+  @apply absolute -bottom-5 left-0 text-red-500 text-xs font-bold text-start;
+}
+
+.text-error-secondary {
+  @apply text-gray-600 text-xs  text-start mt-1;
+}
+
+.text-error-right {
+  @apply absolute -bottom-5 right-0 text-red-500 text-xs font-bold text-start;
+}
+
+.x-overlay {
+  @apply w-screen h-screen fixed inset-0 z-[998];
+  transition-duration: 0.2s;
+}

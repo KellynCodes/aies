@@ -1,8 +1,31 @@
-import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
-import { provideRouter } from '@angular/router';
-
+import {
+  ApplicationConfig,
+  provideExperimentalZonelessChangeDetection,
+} from '@angular/core';
+import {
+  provideRouter,
+  withComponentInputBinding,
+  withViewTransitions,
+} from '@angular/router';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { routes } from './app.routes';
+import {
+  provideHttpClient,
+  withFetch,
+  withInterceptors,
+} from '@angular/common/http';
+import { errorInterceptor } from './interceptors/error.interceptor';
+import { tokenInterceptor } from './interceptors/token.interceptor';
+import { urlInterceptor } from './interceptors/url.interceptor';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes)]
+  providers: [
+    provideHttpClient(
+      withFetch(),
+      withInterceptors([tokenInterceptor, errorInterceptor, urlInterceptor])
+    ),
+    provideExperimentalZonelessChangeDetection(),
+    provideRouter(routes, withViewTransitions(), withComponentInputBinding()),
+    provideAnimationsAsync(),
+  ],
 };
