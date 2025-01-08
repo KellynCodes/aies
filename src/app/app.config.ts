@@ -17,6 +17,7 @@ import {
 import { errorInterceptor } from './interceptors/error.interceptor';
 import { tokenInterceptor } from './interceptors/token.interceptor';
 import { urlInterceptor } from './interceptors/url.interceptor';
+import { provideToastr } from 'ngx-toastr';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -27,5 +28,9 @@ export const appConfig: ApplicationConfig = {
     provideExperimentalZonelessChangeDetection(),
     provideRouter(routes, withViewTransitions(), withComponentInputBinding()),
     provideAnimationsAsync(),
+    provideToastr({
+      preventDuplicates: true,
+      timeOut: 5000,
+    }),
   ],
 };

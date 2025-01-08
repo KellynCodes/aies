@@ -48,11 +48,13 @@ module.exports = {
           50: "#F9FAFB",
           100: "#F2F4F7",
           200: "#EAECF0",
+          250: "#E8E9EB",
           300: "#D0D5DD",
           400: "#A9B5CB",
           500: "#667185",
           600: "#475367",
           700: "#344054",
+          800: "#101928",
           900: "#1C2B3F",
         },
         warning: {
@@ -73,7 +75,7 @@ module.exports = {
         500: "500",
       },
       borderRadius: {
-        DEFAULT: "8px",
+        DEFAULT: "12px",
         xs: "4px",
       },
       boxShadow: {

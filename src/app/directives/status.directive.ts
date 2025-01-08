@@ -30,10 +30,24 @@ export class StatusDirective implements OnInit {
       lighterColor
     );
     this.renderer.setStyle(this.el.nativeElement, 'color', statusColor);
+    this.renderer.setStyle(
+      this.el.nativeElement,
+      'border',
+      `1px solid ${statusColor}`
+    );
   }
 
   private getStatusColor(status: string): string {
     switch (status.toLowerCase()) {
+      case 'sorting':
+        return 'rgb(144,95,236)';
+
+      case 'in transit':
+        return 'rgb(219,179,22)';
+
+      case 'returned':
+        return 'rgb(180,20,51)';
+
       case 'approved':
         return 'rgba(2, 122, 72, 1)';
 
@@ -56,7 +70,7 @@ export class StatusDirective implements OnInit {
         return 'rgba(216, 119, 3, 1)';
 
       case 'delivered':
-        return 'rgba(74, 3, 192, 1)';
+        return 'rgb(21,158,76)';
 
       case 'confirmed':
         return 'rgba(3, 135, 17, 1)';

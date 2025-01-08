@@ -1,0 +1,137 @@
+<div class="p-4 my-4 bg-white rounded">
+  <div class="flex justify-between mb-4 shippingLists-center">
+    <h2 class="text-lg font-semibold text-gray-800">Shipping List</h2>
+    <a href="#" class="text-sm font-semibold text-primary hover:underline"
+      >View All</a
+    >
+  </div>
+  <div class="overflow-x-auto border border-gray-200 rounded">
+    @if(isLoading()){
+    <div class="mx-auto text-center loader"></div>
+    } @else{
+    <table class="w-auto h-auto min-w-full p-1">
+      <thead class="text-sm text-gray-600 uppercase bg-[#F0F2F5]">
+        <tr
+          class="text-xs font-medium text-center text-gray-600 border border-gray-200 bg-gray-50"
+        >
+          <th
+            class="px-4 py-4 text-xs font-semibold text-left text-gray-500 border-r border-gray-200 rounded-tl"
+          >
+            Tracking ID
+          </th>
+          <th
+            class="px-4 py-4 text-xs font-semibold text-left text-gray-500 border-r border-gray-200"
+          >
+            Courier
+          </th>
+          <th
+            class="px-4 py-2 text-xs font-semibold text-left text-gray-500 border-r border-gray-200"
+          >
+            Category
+          </th>
+          <th
+            class="px-4 py-2 text-xs font-semibold text-left text-gray-500 border-r border-gray-200"
+          >
+            Shipping Date
+          </th>
+          <th
+            class="px-4 py-2 text-xs font-semibold text-left text-gray-500 border-r border-gray-200"
+          >
+            Destination
+          </th>
+          <th
+            class="px-4 py-2 text-xs font-semibold text-left text-gray-500 border-r border-gray-200"
+          >
+            Weight
+          </th>
+          <th
+            class="px-4 py-2 text-xs font-semibold text-left text-gray-500 border-r border-gray-200"
+          >
+            Cost
+          </th>
+          <th
+            class="px-4 py-2 text-xs font-semibold text-left text-gray-500 border-r border-gray-200"
+          >
+            Status
+          </th>
+          <th
+            class="px-4 py-2 text-xs font-semibold text-left text-gray-500 border-r border-gray-200"
+          >
+            Action
+          </th>
+        </tr>
+      </thead>
+      <tbody class="text-sm text-gray-700">
+        @for (shippingList of shippingLists().slice(0, 6); track $index) {
+        <tr class="border-b hover:bg-gray-50">
+          <td
+            class="px-4 py-2 text-sm font-normal text-gray-900 border-r border-gray-20"
+          >
+            {{ shippingList.trackingId }}
+          </td>
+          <td
+            class="flex items-center px-4 py-2 text-sm font-normal text-gray-900 border-r border-gray-20"
+          >
+            @if(shippingList.courier != "Not Selected"){
+            <img [src]="shippingList.courierImage" alt="image" />
+            }
+            {{ shippingList.courier }}
+          </td>
+          <td
+            class="px-4 py-2 text-sm font-normal text-gray-900 border-r border-gray-20"
+          >
+            {{ shippingList.category }}
+          </td>
+          <td
+            class="px-4 py-2 text-sm font-normal text-gray-900 border-r border-gray-200"
+          >
+            {{ shippingList.shippingDate }}
+          </td>
+          <td
+            class="flex items-center px-4 py-2 text-sm font-normal text-gray-900 border-r border-gray-20"
+          >
+            <img [src]="shippingList.destinationImage" alt="image" />
+            {{ shippingList.destination }}
+          </td>
+          <td
+            class="px-4 py-2 text-sm font-normal text-gray-900 border-r border-gray-20"
+          >
+            {{ shippingList.weight }}
+          </td>
+          <td
+            class="px-4 py-2 text-sm font-normal text-gray-900 border-r border-gray-20"
+          >
+            {{ shippingList.cost }}
+          </td>
+          <td
+            class="px-4 py-2 text-sm font-normal text-gray-900 border-r border-gray-20"
+          >
+            <span
+              class="px-2 py-1 text-xs rounded"
+              [status]="shippingList.status"
+            >
+              {{ shippingList.status }}
+            </span>
+          </td>
+          <td class="px-4 py-2">
+            <button mat-icon-button>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="30"
+                height="24"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill="currentColor"
+                  d="M3 9.5a1.5 1.5 0 1 1 0-3a1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3a1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3a1.5 1.5 0 0 1 0 3"
+                />
+              </svg>
+            </button>
+          </td>
+        </tr>
+        }
+      </tbody>
+    </table>
+    }
+  </div>
+</div>

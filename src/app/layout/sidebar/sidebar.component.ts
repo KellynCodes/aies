@@ -19,6 +19,14 @@ import { Nav } from '../../enums';
   templateUrl: './sidebar.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [RouterLink, RouterLinkActive, MaterialModule, TruncatePipe],
+  styles: [
+    `
+      .navlink:hover .notification {
+        background-color: #ffffff;
+        color: #1cbd5d;
+      }
+    `,
+  ],
 })
 export class SidebarComponent {
   user = signal<UserDto>(Object.create(null));
@@ -50,7 +58,6 @@ export class SidebarComponent {
       displayName: Nav.Notifications,
     },
   ];
-  // icon-[simple-line-icons--arrow-down]
 
   public isOpen = model<boolean>(true);
   public notify = output<void>();
@@ -60,4 +67,11 @@ export class SidebarComponent {
   public notifications = signal<Array<any>>(
     Array.from([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
   );
+
+  logout(): void {}
+
+  toggle(): void {
+    this.notify.emit();
+    this.isOpen.set(!this.isOpen());
+  }
 }

@@ -22,41 +22,12 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { MaterialModule } from '../components';
 
 @Component({
-  selector: 'vita-layout',
+  selector: 'aies-layout',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [MaterialModule, RouterOutlet, SidebarComponent],
-  styles: [
-    `
-      .sidenav-container {
-        flex: 1;
-      }
-
-      .mobile .sidenav-container {
-        flex: 1 0 auto;
-      }
-    `,
-  ],
-  template: `
-    <div class="w-full h-full flex flex-col fixed inset-0 bg-color">
-      <mat-sidenav-container class="sidenav-container">
-        <mat-sidenav
-          #sideNav
-          [mode]="mobileQuery.matches ? 'over' : 'side'"
-          [fixedInViewport]="mobileQuery.matches"
-          [opened]="!mobileQuery.matches"
-        >
-          <aies-sidebar (notify)="toggleNav()" />
-        </mat-sidenav>
-
-        <mat-sidenav-content>
-          <div class="mt-12 lg:mt-0">
-            <router-outlet />
-          </div>
-        </mat-sidenav-content>
-      </mat-sidenav-container>
-    </div>
-  `,
+  styleUrl: './layout.component.css',
+  templateUrl: './layout.component.html',
 })
 export class LayoutComponent implements OnDestroy {
   mobileQuery: MediaQueryList;

@@ -1,0 +1,61 @@
+<div class="h-[308px] w-[290px] bg-white rounded p-4 relative">
+  <div class="w-[90%] h-fit">
+    <p class="text-xs font-semibold text-gray-900 uppercase">
+      Shipment Delivered
+    </p>
+    <h1 class="mt-2 text-lg font-bold text-gray-500">98.6%</h1>
+
+    <div class="flex items-center gap-1 mt-4">
+      <span class="font-bold text-gray-500 text-2xs">+0.5% </span>
+      <span class="text-gray-500 text-2xs text-semibold">vs last month</span>
+      <div
+        class="flex items-center w-auto h-auto gap-1 px-2 py-1 text-white rounded-full bg-primary"
+      >
+        <span
+          class="text-white icon-[meteor-icons--arrow-up]"
+          style="width: 18px; height: 16px"
+        ></span>
+
+        <span class="text-xs text-white">18%</span>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="absolute border-2 rounded-[50%] border-gray-250 w-auto p-2 right-2 top-2"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+    >
+      <path
+        fill="currentColor"
+        d="m18.501 3.5l-15 15.001l1.996 1.996l15-15zM17.003 14a3 3 0 1 1-.006 6a3 3 0 0 1 .006-6M17 16a1 1 0 1 0 0 2a1 1 0 0 0 0-2M7.003 4a3 3 0 1 1-.006 6a3 3 0 0 1 .006-6M7 6a1 1 0 1 0 0 2a1 1 0 0 0 0-2"
+      />
+    </svg>
+  </div>
+
+  <div class="flex items-center justify-between w-full h-fit">
+    <div class="w-fit h-fit max-w-[100%] max-h-24">
+      <div id="chart">
+        <apx-chart
+          [series]="chartOptions.series!"
+          [chart]="chartOptions.chart!"
+          [dataLabels]="chartOptions.dataLabels!"
+          [title]="chartOptions.title!"
+          [colors]="chartOptions.colors!"
+        ></apx-chart>
+        <div class="flex items-center justify-center w-full space-x-2">
+          <p class="text-sm font-semibold text-gray-900">Less</p>
+          <span class="block w-4 h-4 bg-[#F5F6F8] rounded-sm"></span>
+          <span class="block w-4 h-4 bg-[#DBD9F5] rounded-sm"></span>
+          <span class="block w-4 h-4 bg-[#AAA3E7] rounded-sm"></span>
+          <span class="block w-4 h-4 bg-[#5549D2] rounded-sm"></span>
+          <p class="text-sm font-semibold text-gray-900">More</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

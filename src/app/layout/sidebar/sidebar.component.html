@@ -1,7 +1,7 @@
-<div class="relative w-fit bg-red-500">
+<div class="relative h-full w-fit">
   <div
-    (click)="isOpen.set(!isOpen())"
-    class="flex items-center justify-center w-8 h-20 absolute z-50 -right-8 top-[50%] bottom-[50%] cursor-pointer bg-white rounded-e-lg"
+    (click)="toggle()"
+    class="flex items-center justify-center w-4 h-10 absolute z-50 -right-4 top-[50%] bottom-[50%] cursor-pointer bg-white rounded-e-lg"
   >
     <span
       [class]="
@@ -11,25 +11,25 @@
     ></span>
   </div>
   <div
-    [class]="isOpen() ? 'md:w-[16rem]' : 'w-fit'"
-    class="w-[90vw] max-w-[17rem] bg-white max-h-screen overflow-hidden p-3 relative"
+    [class]="isOpen() ? 'md:w-[14rem]' : 'w-fit'"
+    class="w-[90vw] bg-white max-h-screen p-3 relative"
   >
     <img
-      class="cursor-pointer mx-auto"
+      class="mx-auto cursor-pointer"
       [routerLink]="['/dashboard']"
       [width]="isOpen() ? '320' : '50'"
-      [height]="isOpen() ? '80' : '40'"
+      [height]="isOpen() ? '150' : '40'"
       [src]="isOpen() ? '/icons/logo-full.svg' : '/icons/logo.svg'"
       alt="Logo"
     />
 
-    <div class="max-h-[65vh] overflow-y-auto grid grid-cols-1 gap-2 mt-2">
+    <div class="h-[65%] overflow-y-auto grid grid-cols-1 gap-2 mt-2">
       @for (route of routes; track route.displayName; let index = $index) {
       <a
         #navLink
         [routerLink]="route.route"
         [class]="isOpen() ? 'w-full' : 'w-auto'"
-        class="flex items-center justify-start h-10 px-3 py-2 mx-auto text-xs font-normal text-gray-500 transition-all duration-200 rounded hover:bg-primary hover:text-white gap-x-2 text-start"
+        class="flex items-center justify-start h-10 px-3 py-2 mx-auto text-xs font-normal text-gray-500 transition-all duration-200 rounded navlink hover:bg-primary hover:text-white gap-x-2 text-start"
         routerLinkActive="bg-primary"
         matRipple
       >
@@ -39,51 +39,74 @@
           style="width: 24px; height: 24px"
         ></span>
         @if(isOpen()){
-        <span [class]="router.isActive(route.route, false) ? 'text-white' : ''">
+        <span
+          [class]="
+            router.isActive(route.route, false)
+              ? 'text-white text-sm font-semibold'
+              : ''
+          "
+        >
           {{ route.displayName }}
         </span>
-        } @if(route.displayName == nav.Notifications){
+        @if(route.displayName == nav.Notifications){
         <span
-          class="text-sm font-bold bg-primary text-white text-center w-auto h-auto p-2 rounded"
+          class="w-auto h-auto p-2 ml-8 text-sm font-normal text-center text-white rounded notification bg-primary"
           >{{ notifications().length }}</span
         >
-        }
+        } }
       </a>
       }
     </div>
 
-    <div class="flex flex-col justify-between w-full h-[20%] gap-3 py-2">
+    <div class="flex flex-col justify-between w-full h-[30%] gap-3 py-2 mt-24">
       <div class="self-start w-full h-[50%]">
         <button
           #settingBtn
           matRipple
           routerLink="/setting"
           routerLinkActive="text-primary bg-accent"
-          class="flex items-center justify-start w-full h-10 px-3 py-2 mx-auto text-sm font-semibold text-gray-300 transition-all duration-200 rounded hover:bg-accent hover:text-primary gap-x-4 text-start"
+          class="flex items-center justify-start w-full h-10 px-3 py-2 mx-auto text-xs font-normal text-gray-500 transition-all duration-200 rounded cursor-pointer hover:bg-primary hover:text-white gap-x-2 text-start"
         >
-          <span></span>
-          <span> Setting </span>
-        </button>
-
-        <button
-          #logoutBtn
-          matRipple
-          class="flex items-center justify-start w-full h-10 px-3 py-2 mx-auto text-sm font-semibold text-gray-300 transition-all duration-200 rounded hover:bg-accent hover:text-primary gap-x-4 text-start"
-        >
-          <span></span>
-          Logout
+          <span
+            class="icon-[uil--setting]"
+            style="width: 24px; height: 24px"
+          ></span>
+          @if(isOpen()){
+          <span
+            [class]="
+              router.isActive('/settings', false)
+                ? 'text-white text-sm font-semibold'
+                : ''
+            "
+            >Settings</span
+          >
+          }
         </button>
       </div>
+
       <div class="flex items-center h-[50%]">
-        <div classes="w-12 h-12 text-xl font-bold"></div>
+        @if(isOpen()){
+        <img src="/images/avatar.png" alt="Avatar" />
         <div class="flex flex-col items-center h-full gap-2 ml-2">
-          <p class="self-start text-xs font-semibold text-white">
-            {{ user().fullName | truncate : 50 }}
+          <p class="self-start text-sm font-semibold text-gray-500">
+            {{ "Batson Pierce" | truncate : 50 }}
           </p>
-          <p class="self-start text-xs font-normal text-white">
-            {{ user().email | truncate : 50 }}
+          <p class="self-start text-xs font-normal text-gray-500">
+            {{ "batson.p@africanies.com" | truncate : 20 }}
           </p>
         </div>
+        }
+
+        <button
+          class="flex items-center justify-start w-full h-10 px-3 py-2 mx-auto text-xs font-normal text-gray-500 transition-all duration-200 rounded cursor-pointer hover:bg-primary hover:text-white gap-x-2 text-start"
+          (click)="logout()"
+        >
+          <span
+            class="icon-[material-symbols--logout-rounded]"
+            style="width: 24px; height: 24px"
+          >
+          </span>
+        </button>
       </div>
     </div>
   </div>

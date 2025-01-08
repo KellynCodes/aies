@@ -15,10 +15,9 @@ import { MaterialModule } from './material/material.module';
   imports: [MaterialModule, ReactiveFormsModule],
 
   template: `
-    <div class="shadow-box relative">
-      <mat-icon [class]="searchIconClass()">search</mat-icon>
+    <div class="relative">
       <span
-        class="text-gray-700 absolute left-2 top-2 icon-[material-symbols--search]"
+        class="text-gray-700 absolute left-2 top-3 icon-[material-symbols--search]"
         style="width: 24px; height: 24px;"
       ></span>
       <input

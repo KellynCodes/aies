@@ -2,7 +2,16 @@
 @use "@angular/material" as mat;
 @include mat.core();
 
-@import "./scss/index";
+@import "scss";
+
+:root {
+  --mdc-dialog-container-shape: 8px;
+  --mdc-filled-button-container-shape: 8px;
+  --mdc-text-button-container-shape: 8px;
+  --mdc-protected-button-container-shape: 8px;
+  --mdc-outlined-button-container-shape: 8px;
+  --mdc-text-button-container-shape: 8px;
+}
 
 @tailwind base;
 @tailwind components;

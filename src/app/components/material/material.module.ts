@@ -24,7 +24,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatBadgeModule } from '@angular/material/badge';
 
 /**
- * Exports most used angular material Modules. Add any module u want to use that is not on the list already.
+ * Exports most used angular material Modules. Add any module you want to use, if that is not in the list already.
  */
 @NgModule({
   exports: [
