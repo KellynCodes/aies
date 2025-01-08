@@ -20,14 +20,14 @@ export class CardsComponent {
 
   cards: CardDto[] = [
     {
-      icon: 'icon-[flowbite--dollar-outline]',
+      icon: '/images/dollar.png',
       title: 'Total Revenue',
       amount: '1580.67',
       thisMonth: '10774',
       lastMonth: 18,
     },
     {
-      icon: 'icon-[tabler--truck]',
+      icon: '/images/truck.png',
       title: 'Total Shipment',
       amount: '12768',
       thisMonth: '6774',
@@ -35,7 +35,7 @@ export class CardsComponent {
     },
 
     {
-      icon: 'icon-[clarity--dollar-line]',
+      icon: 'images/dollar.png',
       title: 'Total Deliveries',
       amount: '1580',
       thisMonth: '1074',
@@ -43,7 +43,7 @@ export class CardsComponent {
     },
 
     {
-      icon: 'icon-[grommet-icons--transaction]',
+      icon: '/images/arrow-right-left.png',
       title: 'Total Transaction',
       amount: '45120',
       thisMonth: '774',

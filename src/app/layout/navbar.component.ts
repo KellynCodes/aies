@@ -1,15 +1,22 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { MaterialModule, SearchComponent } from '../components';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'aies-navbar',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [SearchComponent, MaterialModule],
+  imports: [SearchComponent, MaterialModule, RouterLink],
   template: `
-    <div
-      class="sticky top-0 z-[999] p-3 flex w-full items-center h-16 bg-white"
-    >
+    <div class="sticky top-0 z-[999] flex w-full items-center h-16 bg-white">
+      <img
+        class="mx-auto cursor-pointer block md:hidden"
+        [routerLink]="['/dashboard']"
+        [width]="320"
+        [height]="150"
+        src="/icons/logo-full.svg"
+        alt="Logo"
+      />
       <div class="flex items-center justify-between w-full h-full">
         <span class="hidden md:flex w-[50%]">
           <aies-search

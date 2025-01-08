@@ -7,6 +7,16 @@ import { ChartComponent, NgApexchartsModule } from 'ng-apexcharts';
   selector: 'aies-heatmap-graph',
   imports: [NgApexchartsModule],
   templateUrl: './heatmap.component.html',
+  styles: [
+    `
+      @media (max-width: 600px) {
+        :host {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    `,
+  ],
 })
 export class HeatMapChartComponent {
   chart = viewChild(ChartComponent);

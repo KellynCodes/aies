@@ -6,6 +6,16 @@ import { ChartOptions } from '../../../../models';
   selector: 'aies-radialbar-graph',
   imports: [NgApexchartsModule],
   templateUrl: './radialbar.component.html',
+  styles: [
+    `
+      @media (max-width: 600px) {
+        :host {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    `,
+  ],
 })
 export class RadialBarChartComponent {
   chart = ViewChild(ChartComponent);
@@ -15,7 +25,7 @@ export class RadialBarChartComponent {
     this.chartOptions = {
       series: [44, 55, 67, 83],
       chart: {
-        height: 230,
+        height: 220,
         width: 180,
         type: 'radialBar',
       },

@@ -12,53 +12,57 @@
   </div>
   <div
     [class]="isOpen() ? 'md:w-[14rem]' : 'w-fit'"
-    class="w-[90vw] bg-white max-h-screen p-3 relative"
+    class="w-[90vw] flex items-center flex-col justify-between h-screen bg-white max-h-screen p-3 relative"
   >
-    <img
-      class="mx-auto cursor-pointer"
-      [routerLink]="['/dashboard']"
-      [width]="isOpen() ? '320' : '50'"
-      [height]="isOpen() ? '150' : '40'"
-      [src]="isOpen() ? '/icons/logo-full.svg' : '/icons/logo.svg'"
-      alt="Logo"
-    />
+    <div class="h-[50%]">
+      <img
+        class="mx-auto cursor-pointer"
+        [routerLink]="['/dashboard']"
+        [width]="isOpen() ? '320' : '50'"
+        [height]="isOpen() ? '150' : '40'"
+        [src]="isOpen() ? '/icons/logo-full.svg' : '/icons/logo.svg'"
+        alt="Logo"
+      />
 
-    <div class="h-[65%] overflow-y-auto grid grid-cols-1 gap-2 mt-2">
-      @for (route of routes; track route.displayName; let index = $index) {
-      <a
-        #navLink
-        [routerLink]="route.route"
-        [class]="isOpen() ? 'w-full' : 'w-auto'"
-        class="flex items-center justify-start h-10 px-3 py-2 mx-auto text-xs font-normal text-gray-500 transition-all duration-200 rounded navlink hover:bg-primary hover:text-white gap-x-2 text-start"
-        routerLinkActive="bg-primary"
-        matRipple
-      >
-        <span
-          [class.text-white]="router.isActive(route.route, false)"
-          [class]="route.icon"
-          style="width: 24px; height: 24px"
-        ></span>
-        @if(isOpen()){
-        <span
-          [class]="
-            router.isActive(route.route, false)
-              ? 'text-white text-sm font-semibold'
-              : ''
-          "
+      <div class="grid grid-cols-1 gap-2 mt-2 overflow-y-auto">
+        @for (route of routes; track route.displayName; let index = $index) {
+        <a
+          #navLink
+          [routerLink]="route.route"
+          [class]="isOpen() ? 'w-full' : 'w-auto'"
+          class="flex items-center justify-start h-10 px-3 py-2 mx-auto text-xs font-normal text-gray-500 transition-all duration-200 rounded navlink hover:bg-primary hover:text-white gap-x-2 text-start"
+          routerLinkActive="bg-primary"
+          matRipple
         >
-          {{ route.displayName }}
-        </span>
-        @if(route.displayName == nav.Notifications){
-        <span
-          class="w-auto h-auto p-2 ml-8 text-sm font-normal text-center text-white rounded notification bg-primary"
-          >{{ notifications().length }}</span
-        >
-        } }
-      </a>
-      }
+          <span
+            [class.text-white]="router.isActive(route.route, false)"
+            [class]="route.icon"
+            style="width: 24px; height: 24px"
+          ></span>
+          @if(isOpen()){
+          <span
+            [class]="
+              router.isActive(route.route, false)
+                ? 'text-white text-sm font-semibold'
+                : ''
+            "
+          >
+            {{ route.displayName }}
+          </span>
+          @if(route.displayName == nav.Notifications){
+          <span
+            class="w-auto h-auto p-2 ml-8 text-sm font-normal text-center text-white rounded notification bg-primary"
+            >{{ notifications().length }}</span
+          >
+          } }
+        </a>
+        }
+      </div>
     </div>
 
     <div class="flex flex-col justify-between w-full h-[30%] gap-3 py-2 mt-24">
+      <hr class="w-full h-[2px]" />
+
       <div class="self-start w-full h-[50%]">
         <button
           #settingBtn
@@ -84,9 +88,9 @@
         </button>
       </div>
 
-      <div class="flex items-center h-[50%]">
+      <div class="flex items-center justify-center h-[50%]">
         @if(isOpen()){
-        <img src="/images/avatar.png" alt="Avatar" />
+        <img class="-mt-6" src="/images/user.png" alt="Avatar" />
         <div class="flex flex-col items-center h-full gap-2 ml-2">
           <p class="self-start text-sm font-semibold text-gray-500">
             {{ "Batson Pierce" | truncate : 50 }}
@@ -98,7 +102,7 @@
         }
 
         <button
-          class="flex items-center justify-start w-full h-10 px-3 py-2 mx-auto text-xs font-normal text-gray-500 transition-all duration-200 rounded cursor-pointer hover:bg-primary hover:text-white gap-x-2 text-start"
+          class="flex items-center justify-start w-full h-10 px-3 py-2 mx-auto -mt-3 text-xs font-normal text-gray-500 transition-all duration-200 rounded cursor-pointer hover:bg-primary hover:text-white gap-x-2 text-start"
           (click)="logout()"
         >
           <span

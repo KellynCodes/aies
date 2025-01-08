@@ -4,7 +4,7 @@
       <aies-button class="text-white"> + Create Shipment</aies-button>
     </div>
   </aies-navbar>
-  <div class="p-4 pl-4">
+  <div class="py-4 pl-6 pr-4">
     <div class="grid items-center w-full h-full grid-cols-1 md:grid-cols-2">
       <div class="flex flex-col gap-2 mt-4">
         <h1 class="text-xl font-bold text-gray-900">Hi, Pierce.</h1>
@@ -14,7 +14,7 @@
       </div>
 
       <div class="flex items-center justify-end gap-4">
-        <div
+        <!-- <div
           class="flex items-center w-auto h-auto gap-2 px-3 py-2 text-lg font-bold text-center text-gray-500 bg-white rounded justify-evenly max-w-[15rem]"
         >
           <span
@@ -26,14 +26,23 @@
             class="icon-[ep--arrow-right-bold]"
             style="width: 16px; height: 16px"
           ></span>
-        </div>
+        </div> -->
 
-        <button mat-ripple class="w-auto h-auto p-2 bg-white rounded-full">
-          <span
-            class="icon-[solar--calendar-linear]"
-            style="width: 24px; height: 24px"
-          ></span>
-        </button>
+        <p-datepicker
+          dateFormat="MM, yy"
+          [iconDisplay]="'input'"
+          [showIcon]="true"
+          [(ngModel)]="date"
+          inputId="templatedisplay"
+        >
+          <ng-template #inputicon let-clickCallBack="clickCallBack">
+            <span
+              (click)="clickCallBack($event)"
+              class="icon-[solar--calendar-linear]"
+              style="width: 24px; height: 24px"
+            ></span>
+          </ng-template>
+        </p-datepicker>
       </div>
     </div>
 
@@ -42,7 +51,7 @@
       <aies-radialbar-graph />
       <aies-heatmap-graph />
 
-      <div class="h-[308px] w-[237px] bg-white rounded p-4 relative">
+      <div class="h-[308px] w-full md:w-[237px] bg-white rounded p-4 relative">
         <div class="w-[90%] h-full">
           <h2 class="text-[1rem] font-semibold text-gray-900 uppercase">
             Our Warehouses
@@ -87,7 +96,7 @@
         </div>
       </div>
 
-      <div class="h-[308px] w-[221px] bg-white rounded p-4 relative">
+      <div class="h-[308px] w-full md:w-[221px] bg-white rounded p-4 relative">
         <div class="w-[90%] h-full">
           <h2 class="text-[1rem] font-semibold text-gray-900 uppercase">
             Top Addresses

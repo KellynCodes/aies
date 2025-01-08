@@ -73,7 +73,7 @@
             class="flex items-center px-4 py-2 text-sm font-normal text-gray-900 border-r border-gray-20"
           >
             @if(shippingList.courier != "Not Selected"){
-            <img [src]="shippingList.courierImage" alt="image" />
+            <img class="mr-2" [src]="shippingList.courierImage" alt="image" />
             }
             {{ shippingList.courier }}
           </td>
@@ -85,12 +85,16 @@
           <td
             class="px-4 py-2 text-sm font-normal text-gray-900 border-r border-gray-200"
           >
-            {{ shippingList.shippingDate }}
+            {{ shippingList.shippingDate | date }}
           </td>
           <td
             class="flex items-center px-4 py-2 text-sm font-normal text-gray-900 border-r border-gray-20"
           >
-            <img [src]="shippingList.destinationImage" alt="image" />
+            <img
+              class="mr-2"
+              [src]="shippingList.destinationImage"
+              alt="image"
+            />
             {{ shippingList.destination }}
           </td>
           <td

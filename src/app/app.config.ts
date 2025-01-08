@@ -18,6 +18,8 @@ import { errorInterceptor } from './interceptors/error.interceptor';
 import { tokenInterceptor } from './interceptors/token.interceptor';
 import { urlInterceptor } from './interceptors/url.interceptor';
 import { provideToastr } from 'ngx-toastr';
+import { providePrimeNG } from 'primeng/config';
+import Aura from '@primeng/themes/aura';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -31,6 +33,14 @@ export const appConfig: ApplicationConfig = {
     provideToastr({
       preventDuplicates: true,
       timeOut: 5000,
+    }),
+    providePrimeNG({
+      theme: {
+        preset: Aura,
+        options: {
+          darkModeSelector: false || 'none',
+        },
+      },
     }),
   ],
 };

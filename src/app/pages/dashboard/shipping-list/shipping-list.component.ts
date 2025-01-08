@@ -5,10 +5,11 @@ import { StatusDirective } from '../../../directives';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { DashboardService } from '../../../services';
 import { ToastrService } from 'ngx-toastr';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'aies-shipping-list',
-  imports: [StatusDirective, MaterialModule],
+  imports: [StatusDirective, MaterialModule, DatePipe],
   templateUrl: './shipping-list.component.html',
   styleUrl: './shipping-list.component.css',
 })

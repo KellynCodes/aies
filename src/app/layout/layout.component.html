@@ -1,15 +1,14 @@
 <div
   class="fixed inset-0 flex flex-col w-full h-full min-h-screen overflow-y-hidden min-w-[100vw] bg-color"
 >
-  <div
-    [class.mobile]="mobileQuery.matches"
-    class="grid w-full h-full grid-cols-2 sidenav-container"
-  >
+  <div class="grid w-full h-full grid-cols-2 sidenav-container">
     <div class="w-auto">
+      @if(!mobileQuery.matches){
       <aies-sidebar (notify)="toggleNav()" />
+      }
     </div>
 
-    <div class="w-full h-full overflow-y-auto">
+    <div class="w-full h-full overflow-x-hidden overflow-y-auto">
       <router-outlet />
     </div>
   </div>
