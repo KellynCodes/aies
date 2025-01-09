@@ -1,6 +1,9 @@
 # Aies
 
+
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.6.
+
+Click [here](https://aies-by-kelly.vercel.app/) to see the deployed version.
 
 To run this project
  
