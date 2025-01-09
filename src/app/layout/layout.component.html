@@ -3,9 +3,7 @@
 >
   <div class="grid w-full h-full grid-cols-2 sidenav-container">
     <div class="w-auto">
-      @if(!mobileQuery.matches){
-      <aies-sidebar (notify)="toggleNav()" />
-      }
+      <aies-sidebar (notify)="toggleNav()" [isMobile]="mobileQuery.matches" />
     </div>
 
     <div class="w-full h-full overflow-x-hidden overflow-y-auto">

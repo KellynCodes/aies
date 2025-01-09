@@ -2,7 +2,9 @@ import {
   ChangeDetectionStrategy,
   Component,
   inject,
+  input,
   model,
+  OnInit,
   output,
   signal,
 } from '@angular/core';
@@ -28,7 +30,9 @@ import { Nav } from '../../enums';
     `,
   ],
 })
-export class SidebarComponent {
+export class SidebarComponent implements OnInit {
+  isMobile = input.required<boolean>();
+
   user = signal<UserDto>(Object.create(null));
   nav = Nav;
   routes: NavItem[] = [
@@ -67,6 +71,12 @@ export class SidebarComponent {
   public notifications = signal<Array<any>>(
     Array.from([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
   );
+
+  ngOnInit(): void {
+    if (this.isMobile()) {
+      this.isOpen.set(false);
+    }
+  }
 
   logout(): void {}
 

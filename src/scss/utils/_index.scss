@@ -4,7 +4,7 @@
 }
 
 .search-input {
-  @apply bg-white-400 rounded text-gray-900 border-2 border-gray-300 pr-3 py-1 pl-8 placeholder:font-normal placeholder:text-gray-500 placeholder:text-sm outline-none focus:border-primary focus:shadow-input-box transition-all delay-200 ease-in-out;
+  @apply bg-gray-50 rounded text-gray-900 border-2 border-gray-300 pr-3 py-1 pl-8 placeholder:font-normal placeholder:text-gray-500 placeholder:text-sm outline-none focus:border-primary focus:shadow-input-box transition-all delay-200 ease-in-out;
   box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
 }
 
