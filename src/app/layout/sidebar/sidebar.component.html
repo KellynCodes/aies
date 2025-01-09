@@ -63,10 +63,12 @@
       </div>
     </div>
 
-    <div class="flex flex-col justify-between w-full h-[30%] gap-3 py-2 mt-24">
+    <div
+      class="flex flex-col justify-between w-full h-[50%] md:h-[30%] gap-3 py-2 mt-24"
+    >
       <hr class="w-full h-[2px]" />
 
-      <div class="self-start w-full h-[50%]">
+      <div class="w-full h-[20%] md:h-[50%]">
         <button
           #settingBtn
           matRipple
@@ -91,10 +93,10 @@
         </button>
       </div>
 
-      <div class="flex items-center justify-center h-[50%]">
+      <div class="w-full flex items-center justify-evenly h-[80%] md:h-[50%]">
         @if(isOpen()){
-        <img class="-mt-6" src="/images/user.png" alt="Avatar" />
-        <div class="flex flex-col items-center h-full gap-2 ml-2">
+        <img src="/images/user.png" alt="Avatar" />
+        <div class="flex flex-col items-center gap-2 ml-2">
           <p class="self-start text-sm font-semibold text-gray-500">
             {{ "Batson Pierce" | truncate : 50 }}
           </p>
@@ -105,7 +107,7 @@
         }
 
         <button
-          class="flex items-center justify-start w-full h-10 px-3 py-2 mx-auto -mt-3 text-xs font-normal text-gray-500 transition-all duration-200 rounded cursor-pointer hover:bg-primary hover:text-white gap-x-2 text-start"
+          class="flex items-center justify-start w-full h-10 px-3 py-2 mx-auto text-xs font-normal text-gray-500 transition-all duration-200 rounded cursor-pointer hover:bg-primary hover:text-white gap-x-2 text-start"
           (click)="logout()"
         >
           <span
