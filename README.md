@@ -99,3 +99,13 @@ src/
 - Services contains all the Angular Services
 - Environment contain the BaseUrl for Mockaroo
 - SCSS folder contains both CSS/SCSS files which defined most of the vanilla CSSs used in this app, the rest is designed with tailwind.
+
+## 5. Styling Guidelines
+
+The tailwind.config.js file is were tailwind configuration is configured
+
+I have some many custom configuration inside this file and this helps with maintainability.
+
+In the SCSS directory you will see ng-material and utils folder
+ 
+The ng-material folder is were the angular theming system is configured and the utils folder is were I defined some many utility CSS classes
