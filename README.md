@@ -87,7 +87,7 @@ src/
 ```
 
 - The public folder contains all the assets.
-- Component folder contains all the reuseable pages/component.
+- Component folder contains all the reuseable component.
 - Data folder contains static data.
 - Directives folder contains all the angular directive used in the app.
 - Enums contains all the enumerators.
@@ -102,10 +102,10 @@ src/
 
 ## 5. Styling Guidelines
 
-The tailwind.config.js file is were tailwind configuration is configured
+The tailwind.config.js file is where all Tailwind configurations are managed.
 
-I have some many custom configuration inside this file and this helps with maintainability.
+I have many custom configurations inside this file, which helps with maintainability.
 
-In the SCSS directory you will see ng-material and utils folder
- 
-The ng-material folder is were the angular theming system is configured and the utils folder is were I defined some many utility CSS classes
+In the SCSS directory, you will find the ng-material and utils folders.
+
+The ng-material folder is where the Angular theming system is configured, and the utils folder is where I have defined many utility CSS classes.
