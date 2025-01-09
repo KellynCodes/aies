@@ -112,3 +112,8 @@ I have many custom configurations inside this file, which helps with maintainabi
 In the SCSS directory, you will find the ng-material and utils folders.
 
 The ng-material folder is where the Angular theming system is configured, and the utils folder is where I have defined many utility CSS classes.
+
+## 6. Feature improvement if time permit.
+
+- Add smooth angular animation to the sidebar toggle.
+- Make the graph interactive and more like what is on the design
